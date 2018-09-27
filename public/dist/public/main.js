@@ -215,7 +215,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".chatHeader{\r\n\theight: 200px;\r\n\twidth: 80%;\r\n\tpadding-left: 100px;\r\n}\r\n\r\n.chatBox{\r\n\t/* height: 800px; */\r\n\twidth: 800px;\r\n\tborder: 2px solid black;\r\n\tborder-radius: 10px;\r\n\r\n}\r\n\r\n.boxHeading{\r\n\tborder: 1px solid black;\r\n\tborder-radius: 5px;\r\n}\r\n\r\n.chatWindow{\r\n\t/* height: 600px; */\r\n\tmargin: 20px;\r\n\t/* width: 600px; */\r\n\tborder: 2px solid black;\r\n\tborder-radius: 10px;\r\n\r\n}\r\n\r\n.messagesWindow{\r\n\theight: 400px;\r\n\tmargin: 25px;\r\n\t/* width: 600px; */\r\n\tborder: 2px solid black;\r\n\tborder-radius: 10px;\r\n\r\n}\r\n\r\n.messageField{\r\n\theight: 100px;\r\n\tmargin: 25px;\r\n\t/* width: 600px; */\r\n\tborder: 2px solid black;\r\n\tborder-radius: 10px;\r\n\r\n}\r\n\r\n.buttonBox{\r\n\t/* width: 100px;\r\n\tmargin: 25px; */\r\n\tpadding: 25px;\r\n\t/* width: 600px; */\r\n\tborder: 2px solid black;\r\n\tborder-radius: 10px;\r\n\r\n}\r\n\r\n"
 
 /***/ }),
 
@@ -226,7 +226,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\r\n  chatterbox works!\r\n</p>\r\n"
+module.exports = "\r\n\t<!-- COMPONENT SHOW CAKE DETAILS - TWO FIELD DATA DISPLAY -->\r\n\r\n<div class=\"row\">\r\n\t<div class=\"col chatBox\">\t\r\n\t\t<div class=\"row chatHeader\">\r\n\t\t\t<div class=\"col-12 m-3 \">\r\n\t\t\t\t<div class=\"row m-3\">\r\n\t\t\t\t\t<h3 class=\"col-6 font-weight-bold\">Chatterbox Topic:</h3>\r\n\t\t\t\t\t<div class=\"col boxHeading\"><strong>{{box[\"topic\"]}}</strong></div>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"row m-3\">\r\n\t\t\t\t\t<h3 class=\"col-6 font-weight-bold\">Box ID#:</h3>\r\n\t\t\t\t\t<div class=\"col boxHeading\">{{box['_id']}}</div>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"row m-3\">\r\n\t\t\t\t\t<h3 class=\"col-6 font-weight-bold\">Description:</h3>\r\n\t\t\t\t\t<div class=\"col boxHeading\">{{box['desc']}}</div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t\t<div class=\"row\">\r\n\t\t\t<div class=\"col chatWindow\">\r\n\t\t\t\t<div class=\"row\">\r\n\t\t\t\t\t<div class=\"col messagesWindow\">\r\n\t\t\t\t\t\t<table class=\"table table-striped\">\r\n\t\t\t\t\t\t\t<!-- <thead>\r\n\t\t\t\t\t\t\t\t<th scope=\"col\">Prod. Id</th>\r\n\t\t\t\t\t\t\t\t<th scope=\"col\">Name</th>\r\n\t\t\t\t\t\t\t\t<th scope=\"col\">Qty</th>\r\n\t\t\t\t\t\t\t\t<th scope=\"col\">Price</th>\r\n\t\t\t\t\t\t\t\t<th scope=\"col\">Actions</th>\r\n\t\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t</thead> -->\r\n\t\t\t\t\t\t\t<tbody>\r\n\t\t\t\t\t\t\t\t<tr *ngFor=\"let message of messages\">\r\n\t\t\t\t\t\t\t\t\t<td class=\"mr-3\">{{message[\"username\"]}}</td>\r\n\t\t\t\t\t\t\t\t\t<td class=\"mr-3\">{{message[\"createdAt\"]}}</td>\r\n\t\t\t\t\t\t\t\t<!-- </tr>\r\n\t\t\t\t\t\t\t\t<tr> -->\r\n\t\t\t\t\t\t\t\t\t<td class=\"mr-3\">{{message[\"content\"]}}</td>\r\n\t\t\t\t\t\t\t\t</tr>\r\n\t\t\t\t\t\t</tbody>\r\n\t\t\t\t\t\t</table>\r\n\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"row\">\r\n\t\t\t\t\t<div class=\"col\">\r\n\r\n\t\t\t\t\t\t<form (submit)=\"sendMessage()\">\r\n\t\t\t\t\t\t\t<div class=\"row messageField p-4\">\r\n\t\t\t\t\t\t\t\t<div class=\"col-9\">\r\n\t\t\t\t\t\t\t\t\t<!-- <input class=\"form-control form-control-lg\" type=\"text\" placeholder=\".form-control-lg\"> -->\r\n\t\t\t\t\t\t\t\t\t<textarea class=\"form-control\" a></textarea>\r\n\t\t\t\t\t\t\t\t\t<!-- <input type=\"text\" form-control required minlength=\"2\" name=\"message.content\" #message=\"ngModel\" [(ngModel)]=\"message.content\" /> -->\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t<div class=\"col buttonbox px-5\">\r\n\t\t\t\t\t\t\t\t\t<input class=\"btn btn-primary btn-lg\" type=\"submit\" value=\"Send\"/>\r\n\t\t\t\t\t\t\t\t\t<!-- <input [disabled]=\"message.valid\" class=\"btn btn-primary btn-sm\" type=\"submit\" value=\"Send\"/> -->\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</form>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t\t\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -241,6 +241,8 @@ module.exports = "<p>\r\n  chatterbox works!\r\n</p>\r\n"
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChatterboxComponent", function() { return ChatterboxComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../http.service */ "./src/app/http.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -251,10 +253,46 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
 var ChatterboxComponent = /** @class */ (function () {
-    function ChatterboxComponent() {
+    function ChatterboxComponent(_route, _router, _httpService) {
+        this._route = _route;
+        this._router = _router;
+        this._httpService = _httpService;
     }
     ChatterboxComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.id = { id: "" };
+        this.box = { topic: "", desc: "", welcome: "" };
+        this.username = { username: "" };
+        this.message = { username: "", content: "" };
+        this.messages = { messages: "" };
+        this._route.params.subscribe(function (params) {
+            _this.id = params.id;
+            console.log("05 chbox.c.ts onInit params.id = ", params.id);
+        });
+        this.getBox(this.id);
+    };
+    ChatterboxComponent.prototype.getBox = function (id) {
+        var _this = this;
+        var obs = this._httpService.getOneFromServer(id);
+        obs.subscribe(function (response) {
+            console.log("30 chbox.c.ts getBox response.  response = ", response);
+            if (response['status'] == false) {
+                _this.messages = response['messages'];
+                console.log("32 chbox.c.ts getBox.  status=false.  response.ServerMessage = ", response['ServerMessage']);
+            }
+            else {
+                if (response['status'] == true) {
+                    console.log("34 chbox.c.ts getBox.  status=true.  response['Box'] = ", response['Box'], " response.ServerMessage = ", response['ServerMessage']);
+                    _this.box = response['Box'];
+                    _this.message = response['ServerMessage'];
+                    _this.messages = response['Box']['messages'];
+                    console.log("36 chbox.c.ts getBox.  status=true.  response['Box']['messages'] = ", response['Box']['messages']);
+                }
+            }
+        });
     };
     ChatterboxComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -262,7 +300,9 @@ var ChatterboxComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./chatterbox.component.html */ "./src/app/chatterbox/chatterbox.component.html"),
             styles: [__webpack_require__(/*! ./chatterbox.component.css */ "./src/app/chatterbox/chatterbox.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
+            _http_service__WEBPACK_IMPORTED_MODULE_2__["HttpService"]])
     ], ChatterboxComponent);
     return ChatterboxComponent;
 }());
@@ -428,13 +468,14 @@ var HttpService = /** @class */ (function () {
         return this._http.get('/items');
     };
     HttpService.prototype.getOneFromServer = function (id) {
-        return this._http.get('/items' + id);
+        console.log("130 service.ts getOneFromServer id = ", id);
+        return this._http.get('/items/' + id);
     };
     HttpService.prototype.updateToServer = function (id, box) {
-        return this._http.put('/items' + id, box);
+        return this._http.put('/items/' + id, box);
     };
     HttpService.prototype.deleteToServer = function (id) {
-        return this._http.delete('/items' + id);
+        return this._http.delete('/items/' + id);
     };
     HttpService.prototype.createNewToServer = function (box) {
         return this._http.post('/items', box);
@@ -442,7 +483,10 @@ var HttpService = /** @class */ (function () {
     HttpService.prototype.createMessageToServer = function (id, message) {
         return this._http.post('/items/' + id + '/subitem', message);
     };
-    HttpService.prototype.deleteReviewToServer = function (id, sid) {
+    HttpService.prototype.getMessagesFromServer = function (id) {
+        return this._http.get('/items/' + id + '/subitem');
+    };
+    HttpService.prototype.deleteMessageToServer = function (id, sid) {
         return this._http.delete('/items/' + id + '/subitem/' + sid);
     };
     HttpService.prototype.createUser = function (user) {

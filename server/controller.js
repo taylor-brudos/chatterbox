@@ -27,9 +27,9 @@ module.exports = {
     showBox: function(req,res) {
         Box.findOne({_id: req.params.id}, function(err, box) {
             if(err) {
-                res.json({ServerMessage: "Error", Error: err})
+                res.json({ServerMessage: "Error", Error: err, status: false})
             } else {
-                res.json({ServerMessage: "Success", Box: box})
+                res.json({ServerMessage: "Success", Box: box, status: true})
             }
         })
     },
@@ -70,6 +70,7 @@ module.exports = {
         })
     },
 
+	
     deleteMessage: function(req,res) {
         Message.remove({_id: req.params.sid}, function(err) {
             if(err) {

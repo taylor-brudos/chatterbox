@@ -8,8 +8,7 @@ module.exports = function(app) {
 
     app.post("/items", function(req,res) {
 		console.log("200 routes.js /items.  req.body = ",req.body);
-        controller.createUser(req,res);
-	//	controller.createBox(req,res);
+    	controller.createBox(req,res);
     });
 
     app.get("/items/:id", function(req,res) {
@@ -28,7 +27,7 @@ module.exports = function(app) {
         controller.createMessage(req,res);
     });
 
-    app.delete("/items/:id/subitem/:sid", function(req,res) {
+	app.delete("/items/:id/subitem/:sid", function(req,res) {
         controller.deleteMessage(req,res);
     });
 
