@@ -92,7 +92,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<div style=\"text-align:center\">\n  <h1>\n    Welcome to {{ title }}!\n  </h1>\n  <img width=\"300\" alt=\"Angular Logo\" src=\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==\">\n</div>\n<h2>Here are some links to help you start: </h2>\n<ul>\n  <li>\n    <h2><a target=\"_blank\" rel=\"noopener\" href=\"https://angular.io/tutorial\">Tour of Heroes</a></h2>\n  </li>\n  <li>\n    <h2><a target=\"_blank\" rel=\"noopener\" href=\"https://github.com/angular/angular-cli/wiki\">CLI Documentation</a></h2>\n  </li>\n  <li>\n    <h2><a target=\"_blank\" rel=\"noopener\" href=\"https://blog.angular.io/\">Angular blog</a></h2>\n  </li>\n</ul>\n\n<router-outlet></router-outlet>\n"
+module.exports = "\n<div class=\"container\">\n\t<div class=\"row\">\n\t\t<div class=\"col\">\n\t\t\t<!-- <h1 class=\"text-align: center\">{{title}}</h1> -->\n\t\t</div>\n\t</div>\n\t<div class=\"row\">\n\t\t<div class=\"col\">\n\t\t\t<router-outlet></router-outlet>\n\t\t</div>\n\t</div>\n</div>\n\n\n\n\n\n\n\n"
 
 /***/ }),
 
@@ -289,7 +289,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  create works!\n</p>\n"
+module.exports = "<div>\n  <h1>Chatterbox</h1>\n  <h4>Create a chatterbox!</h4>\n  <div>\n    <ul>\n      <li *ngFor=\"let i of errors\">{{i}}</li>\n    </ul>\n  </div>\n  <form (submit)=\"createBox()\">\n    <table>\n      <tr>\n        <td>Topic:</td>\n        <td><input \n          type=\"text\"\n          name=\"topic\"\n          required\n          minlength=\"3\"\n          [(ngModel)]=\"newBox.topic\"\n          #topic=\"ngModel\"/>\n        </td>\n        <td *ngIf=\"topic.errors\">\n          <p *ngIf=\"topic.errors['required']\">required</p>\n          <p *ngIf=\"topic.errors['minlength']\"> {{topic.errors['minlength']['actualLength']}}/{{topic.errors['minlength']['requiredLength']}} required characters.</p>\n        </td>\n      </tr>\n      <tr>\n        <td>Description:</td>\n        <td><input\n          type=\"text\"\n          name=\"desc\"\n          required\n          minlength=\"5\"\n          [(ngModel)]=\"newBox.desc\"\n          #desc=\"ngModel\"/>\n        </td>\n        <td *ngIf=\"desc.errors\">\n          <p *ngIf=\"desc.errors['required']\">required</p>\n          <p *ngIf=\"desc.errors['minlength']\"> {{desc.errors['minlength']['actualLength']}}/{{desc.errors['minlength']['requiredLength']}} required characters. </p>\n        </td>\n      </tr>\n      <tr>\n        <td>Welcome Message:</td>\n        <td><input\n          type=\"text\"\n          name=\"welcome\"\n          required\n          minlength=\"5\"\n          [(ngModel)]=\"newBox.welcome\"\n          #welcome=\"ngModel\"/>\n        </td>\n        <td *ngIf=\"welcome.errors\">\n          <p *ngIf=\"welcome.errors['required']\">required</p>\n          <p *ngIf=\"welcome.errors['minlength']\"> {{welcome.errors['minlength']['actualLength']}}/{{welcome.errors['minlength']['requiredLength']}} required characters. </p>\n        </td>\n      </tr>\n      <tr>\n        <td (click)=\"goHome()\"><button>Cancel</button></td>\n        <td>\n          <button>Submit</button>\n        </td>\n      </tr>\n    </table>\n  </form>\n</div>"
 
 /***/ }),
 
@@ -304,6 +304,8 @@ module.exports = "<p>\n  create works!\n</p>\n"
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CreateComponent", function() { return CreateComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../http.service */ "./src/app/http.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -314,10 +316,54 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
 var CreateComponent = /** @class */ (function () {
-    function CreateComponent() {
+    function CreateComponent(_http, _route, _router) {
+        this._http = _http;
+        this._route = _route;
+        this._router = _router;
+        this.errors = [];
+        this.newBox = {
+            topic: '',
+            desc: '',
+            welcome: '',
+            messages: []
+        };
     }
-    CreateComponent.prototype.ngOnInit = function () {
+    CreateComponent.prototype.ngOnInit = function () { };
+    CreateComponent.prototype.createBox = function () {
+        var _this = this;
+        var obs = this._http.createNewToServer(this.newBox);
+        obs.subscribe(function (data) {
+            if (data['ServerMessage'] == "Error") {
+                _this.errors = [];
+                if (typeof (data['Error']) == 'string') {
+                    _this.errors.push(data['Error']);
+                }
+                else {
+                    for (var key in data['Error']['errors']) {
+                        _this.errors.push(data['Error']['errors'][key]['message']);
+                    }
+                }
+            }
+            else {
+                _this.newBox = {
+                    topic: '',
+                    desc: '',
+                    welcome: '',
+                    messages: []
+                };
+            }
+            _this.goToBox();
+        });
+    };
+    CreateComponent.prototype.goToBox = function () {
+        //this code will need to change to redirect to the box
+        this._router.navigate(['/home']);
+    };
+    CreateComponent.prototype.goHome = function () {
+        this._router.navigate(['/home']);
     };
     CreateComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -325,7 +371,9 @@ var CreateComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./create.component.html */ "./src/app/create/create.component.html"),
             styles: [__webpack_require__(/*! ./create.component.css */ "./src/app/create/create.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_http_service__WEBPACK_IMPORTED_MODULE_2__["HttpService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]])
     ], CreateComponent);
     return CreateComponent;
 }());
@@ -476,7 +524,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  splash works!\n</p>\n"
+module.exports = "\n<div class=\"container\">\n\t<div class=\"row\">\n\t\t<div class=\"col\">\n\t\t\t<h1 class=\"text-align: center\">Chatter</h1>\n\t\t</div>\n\t</div>\n\t <div class=\"col m-3\" >\n\t<h4>Let's Get Chattering!</h4>\n\t<div class=\"row m-3\">\n\t\t<div class=\"col-3\">Your User Name:</div>\n\t\t<div class=\"col\">{{message[\"name\"]}}</div>\n\t</div>\n\t<div class=\"row m-3\">\n\t\t<div class=\"col-3\">Location:</div>\n\t\t<div class=\"col\">{{session[\"location\"]}}</div>\n\t</div>\n\t<div class=\"row m-3\">\n\t\t<div class=\"col-3\">Fun Fact:</div>\n\t\t<div class=\"col\">{{session[\"funfact\"]}}</div>\n\t</div>\n</div> \n<button (click)=\"letsGo()\" class=\"btn btn-primary btn-sm m-x-2\">Let's Go!</button>\n\n\n\n\n\n\n\n\n"
 
 /***/ }),
 

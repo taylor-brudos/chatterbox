@@ -1,3 +1,64 @@
-<p>
-  create works!
-</p>
+<div>
+  <h1>Chatterbox</h1>
+  <h4>Create a chatterbox!</h4>
+  <div>
+    <ul>
+      <li *ngFor="let i of errors">{{i}}</li>
+    </ul>
+  </div>
+  <form (submit)="createBox()">
+    <table>
+      <tr>
+        <td>Topic:</td>
+        <td><input 
+          type="text"
+          name="topic"
+          required
+          minlength="3"
+          [(ngModel)]="newBox.topic"
+          #topic="ngModel"/>
+        </td>
+        <td *ngIf="topic.errors">
+          <p *ngIf="topic.errors['required']">required</p>
+          <p *ngIf="topic.errors['minlength']"> {{topic.errors['minlength']['actualLength']}}/{{topic.errors['minlength']['requiredLength']}} required characters.</p>
+        </td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td><input
+          type="text"
+          name="desc"
+          required
+          minlength="5"
+          [(ngModel)]="newBox.desc"
+          #desc="ngModel"/>
+        </td>
+        <td *ngIf="desc.errors">
+          <p *ngIf="desc.errors['required']">required</p>
+          <p *ngIf="desc.errors['minlength']"> {{desc.errors['minlength']['actualLength']}}/{{desc.errors['minlength']['requiredLength']}} required characters. </p>
+        </td>
+      </tr>
+      <tr>
+        <td>Welcome Message:</td>
+        <td><input
+          type="text"
+          name="welcome"
+          required
+          minlength="5"
+          [(ngModel)]="newBox.welcome"
+          #welcome="ngModel"/>
+        </td>
+        <td *ngIf="welcome.errors">
+          <p *ngIf="welcome.errors['required']">required</p>
+          <p *ngIf="welcome.errors['minlength']"> {{welcome.errors['minlength']['actualLength']}}/{{welcome.errors['minlength']['requiredLength']}} required characters. </p>
+        </td>
+      </tr>
+      <tr>
+        <td (click)="goHome()"><button>Cancel</button></td>
+        <td>
+          <button>Submit</button>
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>
