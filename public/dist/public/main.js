@@ -92,7 +92,9 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+
 module.exports = "\r\n<div class=\"container\">\r\n\t<div class=\"row\">\r\n\t\t<div class=\"col\">\r\n\t\t\t<router-outlet></router-outlet>\r\n\t\t</div>\r\n\t</div>\r\n</div>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n"
+
 
 /***/ }),
 
@@ -329,7 +331,9 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\r\n  create works!\r\n</p>\r\n"
+
+module.exports = "<div>\n  <h1>Chatterbox</h1>\n  <h4>Create a chatterbox!</h4>\n  <div>\n    <ul>\n      <li *ngFor=\"let i of errors\">{{i}}</li>\n    </ul>\n  </div>\n  <form (submit)=\"createBox()\">\n    <table>\n      <tr>\n        <td>Topic:</td>\n        <td><input \n          type=\"text\"\n          name=\"topic\"\n          required\n          minlength=\"3\"\n          [(ngModel)]=\"newBox.topic\"\n          #topic=\"ngModel\"/>\n        </td>\n        <td *ngIf=\"topic.errors\">\n          <p *ngIf=\"topic.errors['required']\">required</p>\n          <p *ngIf=\"topic.errors['minlength']\"> {{topic.errors['minlength']['actualLength']}}/{{topic.errors['minlength']['requiredLength']}} required characters.</p>\n        </td>\n      </tr>\n      <tr>\n        <td>Description:</td>\n        <td><input\n          type=\"text\"\n          name=\"desc\"\n          required\n          minlength=\"5\"\n          [(ngModel)]=\"newBox.desc\"\n          #desc=\"ngModel\"/>\n        </td>\n        <td *ngIf=\"desc.errors\">\n          <p *ngIf=\"desc.errors['required']\">required</p>\n          <p *ngIf=\"desc.errors['minlength']\"> {{desc.errors['minlength']['actualLength']}}/{{desc.errors['minlength']['requiredLength']}} required characters. </p>\n        </td>\n      </tr>\n      <tr>\n        <td>Welcome Message:</td>\n        <td><input\n          type=\"text\"\n          name=\"welcome\"\n          required\n          minlength=\"5\"\n          [(ngModel)]=\"newBox.welcome\"\n          #welcome=\"ngModel\"/>\n        </td>\n        <td *ngIf=\"welcome.errors\">\n          <p *ngIf=\"welcome.errors['required']\">required</p>\n          <p *ngIf=\"welcome.errors['minlength']\"> {{welcome.errors['minlength']['actualLength']}}/{{welcome.errors['minlength']['requiredLength']}} required characters. </p>\n        </td>\n      </tr>\n      <tr>\n        <td (click)=\"goHome()\"><button>Cancel</button></td>\n        <td>\n          <button>Submit</button>\n        </td>\n      </tr>\n    </table>\n  </form>\n</div>"
+
 
 /***/ }),
 
@@ -344,6 +348,8 @@ module.exports = "<p>\r\n  create works!\r\n</p>\r\n"
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CreateComponent", function() { return CreateComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../http.service */ "./src/app/http.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -354,10 +360,54 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
 var CreateComponent = /** @class */ (function () {
-    function CreateComponent() {
+    function CreateComponent(_http, _route, _router) {
+        this._http = _http;
+        this._route = _route;
+        this._router = _router;
+        this.errors = [];
+        this.newBox = {
+            topic: '',
+            desc: '',
+            welcome: '',
+            messages: []
+        };
     }
-    CreateComponent.prototype.ngOnInit = function () {
+    CreateComponent.prototype.ngOnInit = function () { };
+    CreateComponent.prototype.createBox = function () {
+        var _this = this;
+        var obs = this._http.createNewToServer(this.newBox);
+        obs.subscribe(function (data) {
+            if (data['ServerMessage'] == "Error") {
+                _this.errors = [];
+                if (typeof (data['Error']) == 'string') {
+                    _this.errors.push(data['Error']);
+                }
+                else {
+                    for (var key in data['Error']['errors']) {
+                        _this.errors.push(data['Error']['errors'][key]['message']);
+                    }
+                }
+            }
+            else {
+                _this.newBox = {
+                    topic: '',
+                    desc: '',
+                    welcome: '',
+                    messages: []
+                };
+            }
+            _this.goToBox();
+        });
+    };
+    CreateComponent.prototype.goToBox = function () {
+        //this code will need to change to redirect to the box
+        this._router.navigate(['/home']);
+    };
+    CreateComponent.prototype.goHome = function () {
+        this._router.navigate(['/home']);
     };
     CreateComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -365,7 +415,9 @@ var CreateComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./create.component.html */ "./src/app/create/create.component.html"),
             styles: [__webpack_require__(/*! ./create.component.css */ "./src/app/create/create.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_http_service__WEBPACK_IMPORTED_MODULE_2__["HttpService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]])
     ], CreateComponent);
     return CreateComponent;
 }());
@@ -524,8 +576,8 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<div class=\"container\">\r\n\t<div class=\"row flex-row \">\r\n\t\t<div class=\"col d-flex mx-auto display-1 justify-content-center \">\r\n\t\t\t<h1 class=\"text-align: center\">Chatter</h1>\r\n\t\t</div>\r\n\t</div>\r\n\t<div class=\"row flex-row\">\r\n\t\t<div class=\"col d-flex mx-auto display-1 justify-content-center \">\r\n\t\t\t<h3 class=\"display-5\">Let's Get Chattering!</h3>\r\n\t\t</div>\r\n\t</div>\r\n\t<div class=\"row\">\r\n\t\t<div class=\"col d-flex justify-content-center border rounded mx-auto main-border\">\r\n\t\t\t<form (submit)=\"createUser()\">\r\n\t\t\t\t\t\r\n\t\t\t\t\t\r\n\t\t\t\t\t<!-- <p> {{ messages | json }} </p>\r\n\t\t\t\t\t<p> {{ user | json }} </p> -->\r\n\r\n\t\t\t\t\t<!-- <div *ngIf=\"!username.valid && (username.dirty || username.touched)\">\r\n\t\t\t\t\t\t<span class=\"text-danger\" *ngIf=\"username.errors.required\">Username is required</span>\r\n\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t<span class=\"text-danger\" *ngIf=\"messages.username\">{{ messages.username }}</span>\r\n\t\t\t\t\t<span class=\"text-success\" *ngIf=\"message\">{{ message }}</span> -->\r\n\r\n\t\t\t\t\t<div class=\"form-group row\">\r\n\t\t\t\t\t\t<label class=\"col-6\" path=\"name\">Your username:</label>\r\n\t\t\t\t\t\t<input type=\"text\" name=\"user.username\" [(ngModel)]=\"user.username\" />\r\n\t\t\t\t\t\t<!-- <input type=\"text\" required name=\"user.username\" #username=\"ngModel\" [(ngModel)]=\"user.username\" /> -->\r\n\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t<!-- <div *ngIf=\"!location.valid && (location.dirty || location.touched)\">\r\n\t\t\t\t\t\t<span class=\"text-danger\" *ngIf=\"location.errors.required\">Location is required</span>\r\n\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t<span class=\"text-danger\" *ngIf=\"messages.location\">{{ messages.location }}</span>\r\n\t\t\t\t\t<span class=\"text-success\" *ngIf=\"message\">{{ message }}</span> -->\r\n\t\t\t\r\n\t\t\t\t\t<div class=\"form-group row\">\r\n\t\t\t\t\t\t<label class=\"col-6\" path=\"name\">Your location:</label>\r\n\t\t\t\t\t\t<input type=\"text\" name=\"user.location\" [(ngModel)]=\"user.location\"/>\r\n\t\t\t\t\t\t<!-- <input type=\"text\" required name=\"user.location\" #location=\"ngModel\" [(ngModel)]=\"user.location\" /> -->\r\n\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t<!-- <div *ngIf=\"!funfact.valid && (funfact.dirty || funfact.touched)\">\r\n\t\t\t\t\t\t<span class=\"text-danger\" *ngIf=\"funfact.errors.required\">Fun fact is required</span>\r\n\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t<span class=\"text-danger\" *ngIf=\"messages.funfact\">{{ messages.funfact }}</span>\r\n\t\t\t\t\t<span class=\"text-success\" *ngIf=\"message\">{{ message }}</span> -->\r\n\t\t\t\r\n\t\t\t\t\t<div class=\"form-group row\">\r\n\t\t\t\t\t\t<label class=\"col-6\">Fun fact about you:</label>\r\n\t\t\t\t\t\t<input type=\"text\" name=\"user.funfact\"[(ngModel)]=\"user.funfact\"/>\r\n\t\t\t\t\t\t<!-- <input type=\"text\" required name=\"user.funfact\" #funfact=\"ngModel\" [(ngModel)]=\"user.funfact\" /> -->\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"row\">\r\n\t\t\t\t\t\t<div class=\"col\">\r\n\t\t\t\t\t\t\t<input type=\"submit\" class=\"btn btn-block btn-primary btn-lg m-x-2\" value=\"Let's Go!\"/>\r\n\t\t\t\t\t<!-- <input [disabled]=\"!name.valid || !location.valid || !funfact.valid\" class=\"btn btn-primary btn-sm\" type=\"submit\" value=\"Let's Go!\"/> -->\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\r\n\t\t\t</form>\r\n\t\t</div>\r\n\t</div>\r\n</div>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n"
 
+module.exports = "\r\n<div class=\"container\">\r\n\t<div class=\"row flex-row \">\r\n\t\t<div class=\"col d-flex mx-auto display-1 justify-content-center \">\r\n\t\t\t<h1 class=\"text-align: center\">Chatter</h1>\r\n\t\t</div>\r\n\t</div>\r\n\t<div class=\"row flex-row\">\r\n\t\t<div class=\"col d-flex mx-auto display-1 justify-content-center \">\r\n\t\t\t<h3 class=\"display-5\">Let's Get Chattering!</h3>\r\n\t\t</div>\r\n\t</div>\r\n\t<div class=\"row\">\r\n\t\t<div class=\"col d-flex justify-content-center border rounded mx-auto main-border\">\r\n\t\t\t<form (submit)=\"createUser()\">\r\n\t\t\t\t\t\r\n\t\t\t\t\t\r\n\t\t\t\t\t<!-- <p> {{ messages | json }} </p>\r\n\t\t\t\t\t<p> {{ user | json }} </p> -->\r\n\r\n\t\t\t\t\t<!-- <div *ngIf=\"!username.valid && (username.dirty || username.touched)\">\r\n\t\t\t\t\t\t<span class=\"text-danger\" *ngIf=\"username.errors.required\">Username is required</span>\r\n\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t<span class=\"text-danger\" *ngIf=\"messages.username\">{{ messages.username }}</span>\r\n\t\t\t\t\t<span class=\"text-success\" *ngIf=\"message\">{{ message }}</span> -->\r\n\r\n\t\t\t\t\t<div class=\"form-group row\">\r\n\t\t\t\t\t\t<label class=\"col-6\" path=\"name\">Your username:</label>\r\n\t\t\t\t\t\t<input type=\"text\" name=\"user.username\" [(ngModel)]=\"user.username\" />\r\n\t\t\t\t\t\t<!-- <input type=\"text\" required name=\"user.username\" #username=\"ngModel\" [(ngModel)]=\"user.username\" /> -->\r\n\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t<!-- <div *ngIf=\"!location.valid && (location.dirty || location.touched)\">\r\n\t\t\t\t\t\t<span class=\"text-danger\" *ngIf=\"location.errors.required\">Location is required</span>\r\n\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t<span class=\"text-danger\" *ngIf=\"messages.location\">{{ messages.location }}</span>\r\n\t\t\t\t\t<span class=\"text-success\" *ngIf=\"message\">{{ message }}</span> -->\r\n\t\t\t\r\n\t\t\t\t\t<div class=\"form-group row\">\r\n\t\t\t\t\t\t<label class=\"col-6\" path=\"name\">Your location:</label>\r\n\t\t\t\t\t\t<input type=\"text\" name=\"user.location\" [(ngModel)]=\"user.location\"/>\r\n\t\t\t\t\t\t<!-- <input type=\"text\" required name=\"user.location\" #location=\"ngModel\" [(ngModel)]=\"user.location\" /> -->\r\n\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t<!-- <div *ngIf=\"!funfact.valid && (funfact.dirty || funfact.touched)\">\r\n\t\t\t\t\t\t<span class=\"text-danger\" *ngIf=\"funfact.errors.required\">Fun fact is required</span>\r\n\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t<span class=\"text-danger\" *ngIf=\"messages.funfact\">{{ messages.funfact }}</span>\r\n\t\t\t\t\t<span class=\"text-success\" *ngIf=\"message\">{{ message }}</span> -->\r\n\t\t\t\r\n\t\t\t\t\t<div class=\"form-group row\">\r\n\t\t\t\t\t\t<label class=\"col-6\">Fun fact about you:</label>\r\n\t\t\t\t\t\t<input type=\"text\" name=\"user.funfact\"[(ngModel)]=\"user.funfact\"/>\r\n\t\t\t\t\t\t<!-- <input type=\"text\" required name=\"user.funfact\" #funfact=\"ngModel\" [(ngModel)]=\"user.funfact\" /> -->\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"row\">\r\n\t\t\t\t\t\t<div class=\"col\">\r\n\t\t\t\t\t\t\t<input type=\"submit\" class=\"btn btn-block btn-primary btn-lg m-x-2\" value=\"Let's Go!\"/>\r\n\t\t\t\t\t<!-- <input [disabled]=\"!name.valid || !location.valid || !funfact.valid\" class=\"btn btn-primary btn-sm\" type=\"submit\" value=\"Let's Go!\"/> -->\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\r\n\t\t\t</form>\r\n\t\t</div>\r\n\t</div>\r\n</div>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n"
 /***/ }),
 
 /***/ "./src/app/splash/splash.component.ts":
