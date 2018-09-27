@@ -1,3 +1,20 @@
-<p>
-  home works!
-</p>
+<div>
+  <a href="/create"><button>Create a chatterbox!</button></a>
+  <h1>Current Topics</h1>
+  <table>
+    <tr>
+      <th>Topic</th>
+      <th>Id</th>
+      <th>Last Update</th>
+      <th>Messages</th>
+      <th>Join</th>
+    </tr>
+    <tr *ngFor="let box of boxes">
+      <td>{{box['topic']}}</td>
+      <td>{{box['_id']}}</td>
+      <td>Time/Date</td>
+      <td>#</td>
+      <td><a href="/chat/{{box['_id']}}"><button>Join</button></a></td>
+    </tr>
+  </table>
+</div>
