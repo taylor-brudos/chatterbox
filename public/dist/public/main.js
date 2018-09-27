@@ -400,7 +400,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  home works!\n</p>\n"
+module.exports = "<div>\n  <a href=\"/create\"><button>Create a chatterbox!</button></a>\n  <h1>Current Topics</h1>\n  <table>\n    <tr>\n      <th>Topic</th>\n      <th>Id</th>\n      <th>Last Update</th>\n      <th>Messages</th>\n      <th>Join</th>\n    </tr>\n    <tr *ngFor=\"let box of boxes\">\n      <td>{{box['topic']}}</td>\n      <td>{{box['_id']}}</td>\n      <td>Time/Date</td>\n      <td>#</td>\n      <td><a href=\"/chat/{{box['_id']}}\"><button>Join</button></a></td>\n    </tr>\n  </table>\n</div>"
 
 /***/ }),
 
@@ -415,6 +415,7 @@ module.exports = "<p>\n  home works!\n</p>\n"
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeComponent", function() { return HomeComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../http.service */ "./src/app/http.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -425,10 +426,22 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var HomeComponent = /** @class */ (function () {
-    function HomeComponent() {
+    function HomeComponent(_httpService) {
+        this._httpService = _httpService;
     }
     HomeComponent.prototype.ngOnInit = function () {
+        this.getBoxes();
+    };
+    HomeComponent.prototype.getBoxes = function () {
+        var _this = this;
+        var obs = this._httpService.getAllFromServer();
+        obs.subscribe(function (data) {
+            if (data['ServerMessage'] == "Success") {
+                _this.boxes = data['Boxes'];
+            }
+        });
     };
     HomeComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -436,7 +449,7 @@ var HomeComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./home.component.html */ "./src/app/home/home.component.html"),
             styles: [__webpack_require__(/*! ./home.component.css */ "./src/app/home/home.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_http_service__WEBPACK_IMPORTED_MODULE_1__["HttpService"]])
     ], HomeComponent);
     return HomeComponent;
 }());
