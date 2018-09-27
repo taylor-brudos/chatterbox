@@ -1,4 +1,5 @@
 var mongoose = require("mongoose")
+var User = mongoose.model("User")
 var Box = mongoose.model("Box")
 var Message = mongoose.model("Message")
 
@@ -83,5 +84,18 @@ module.exports = {
                 })
             }
         })
-    }
+    },
+
+	createUser: function(req,res) {
+        User.create(req.body, function(err, user) {
+			console.log("300 controller.js createUser.  req.body = ",req.body);
+            if(err) {
+				console.log("310 controller.js createUser err.  err = ",err);
+                res.json({ServerMessage: "Error", Error: err, status: false})
+            } else {
+				console.log("320 controller.js createUser user.  user = ",user);
+                res.json({ServerMessage: "Success", User: user, status: true})
+            }
+        })
+    },
 }

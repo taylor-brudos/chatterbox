@@ -92,7 +92,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<div style=\"text-align:center\">\n  <h1>\n    Welcome to {{ title }}!\n  </h1>\n  <img width=\"300\" alt=\"Angular Logo\" src=\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==\">\n</div>\n<h2>Here are some links to help you start: </h2>\n<ul>\n  <li>\n    <h2><a target=\"_blank\" rel=\"noopener\" href=\"https://angular.io/tutorial\">Tour of Heroes</a></h2>\n  </li>\n  <li>\n    <h2><a target=\"_blank\" rel=\"noopener\" href=\"https://github.com/angular/angular-cli/wiki\">CLI Documentation</a></h2>\n  </li>\n  <li>\n    <h2><a target=\"_blank\" rel=\"noopener\" href=\"https://blog.angular.io/\">Angular blog</a></h2>\n  </li>\n</ul>\n\n<router-outlet></router-outlet>\n"
+module.exports = "\r\n<div class=\"container\">\r\n\t<div class=\"row\">\r\n\t\t<div class=\"col\">\r\n\t\t\t<router-outlet></router-outlet>\r\n\t\t</div>\r\n\t</div>\r\n</div>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n"
 
 /***/ }),
 
@@ -226,7 +226,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  chatterbox works!\n</p>\n"
+module.exports = "<p>\r\n  chatterbox works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -289,7 +289,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  create works!\n</p>\n"
+module.exports = "<p>\r\n  create works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -352,7 +352,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  home works!\n</p>\n"
+module.exports = "<p>\r\n  home works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -445,6 +445,10 @@ var HttpService = /** @class */ (function () {
     HttpService.prototype.deleteReviewToServer = function (id, sid) {
         return this._http.delete('/items/' + id + '/subitem/' + sid);
     };
+    HttpService.prototype.createUser = function (user) {
+        console.log("100 service.ts createUser.  user = ", user);
+        return this._http.post('/items', user);
+    };
     HttpService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
@@ -476,7 +480,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  splash works!\n</p>\n"
+module.exports = "\r\n<div class=\"container\">\r\n\t<div class=\"row flex-row \">\r\n\t\t<div class=\"col d-flex mx-auto display-1 justify-content-center \">\r\n\t\t\t<h1 class=\"text-align: center\">Chatter</h1>\r\n\t\t</div>\r\n\t</div>\r\n\t<div class=\"row flex-row\">\r\n\t\t<div class=\"col d-flex mx-auto display-1 justify-content-center \">\r\n\t\t\t<h3 class=\"display-5\">Let's Get Chattering!</h3>\r\n\t\t</div>\r\n\t</div>\r\n\t<div class=\"row\">\r\n\t\t<div class=\"col d-flex justify-content-center border rounded mx-auto main-border\">\r\n\t\t\t<form (submit)=\"createUser()\">\r\n\t\t\t\t\t\r\n\t\t\t\t\t\r\n\t\t\t\t\t<!-- <p> {{ messages | json }} </p>\r\n\t\t\t\t\t<p> {{ user | json }} </p> -->\r\n\r\n\t\t\t\t\t<!-- <div *ngIf=\"!username.valid && (username.dirty || username.touched)\">\r\n\t\t\t\t\t\t<span class=\"text-danger\" *ngIf=\"username.errors.required\">Username is required</span>\r\n\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t<span class=\"text-danger\" *ngIf=\"messages.username\">{{ messages.username }}</span>\r\n\t\t\t\t\t<span class=\"text-success\" *ngIf=\"message\">{{ message }}</span> -->\r\n\r\n\t\t\t\t\t<div class=\"form-group row\">\r\n\t\t\t\t\t\t<label class=\"col-6\" path=\"name\">Your username:</label>\r\n\t\t\t\t\t\t<input type=\"text\" name=\"user.username\" [(ngModel)]=\"user.username\" />\r\n\t\t\t\t\t\t<!-- <input type=\"text\" required name=\"user.username\" #username=\"ngModel\" [(ngModel)]=\"user.username\" /> -->\r\n\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t<!-- <div *ngIf=\"!location.valid && (location.dirty || location.touched)\">\r\n\t\t\t\t\t\t<span class=\"text-danger\" *ngIf=\"location.errors.required\">Location is required</span>\r\n\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t<span class=\"text-danger\" *ngIf=\"messages.location\">{{ messages.location }}</span>\r\n\t\t\t\t\t<span class=\"text-success\" *ngIf=\"message\">{{ message }}</span> -->\r\n\t\t\t\r\n\t\t\t\t\t<div class=\"form-group row\">\r\n\t\t\t\t\t\t<label class=\"col-6\" path=\"name\">Your location:</label>\r\n\t\t\t\t\t\t<input type=\"text\" name=\"user.location\" [(ngModel)]=\"user.location\"/>\r\n\t\t\t\t\t\t<!-- <input type=\"text\" required name=\"user.location\" #location=\"ngModel\" [(ngModel)]=\"user.location\" /> -->\r\n\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t<!-- <div *ngIf=\"!funfact.valid && (funfact.dirty || funfact.touched)\">\r\n\t\t\t\t\t\t<span class=\"text-danger\" *ngIf=\"funfact.errors.required\">Fun fact is required</span>\r\n\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t<span class=\"text-danger\" *ngIf=\"messages.funfact\">{{ messages.funfact }}</span>\r\n\t\t\t\t\t<span class=\"text-success\" *ngIf=\"message\">{{ message }}</span> -->\r\n\t\t\t\r\n\t\t\t\t\t<div class=\"form-group row\">\r\n\t\t\t\t\t\t<label class=\"col-6\">Fun fact about you:</label>\r\n\t\t\t\t\t\t<input type=\"text\" name=\"user.funfact\"[(ngModel)]=\"user.funfact\"/>\r\n\t\t\t\t\t\t<!-- <input type=\"text\" required name=\"user.funfact\" #funfact=\"ngModel\" [(ngModel)]=\"user.funfact\" /> -->\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"row\">\r\n\t\t\t\t\t\t<div class=\"col\">\r\n\t\t\t\t\t\t\t<input type=\"submit\" class=\"btn btn-block btn-primary btn-lg m-x-2\" value=\"Let's Go!\"/>\r\n\t\t\t\t\t<!-- <input [disabled]=\"!name.valid || !location.valid || !funfact.valid\" class=\"btn btn-primary btn-sm\" type=\"submit\" value=\"Let's Go!\"/> -->\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\r\n\t\t\t</form>\r\n\t\t</div>\r\n\t</div>\r\n</div>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n"
 
 /***/ }),
 
@@ -491,6 +495,8 @@ module.exports = "<p>\n  splash works!\n</p>\n"
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SplashComponent", function() { return SplashComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../http.service */ "./src/app/http.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -501,10 +507,49 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
 var SplashComponent = /** @class */ (function () {
-    function SplashComponent() {
+    function SplashComponent(_route, _router, _httpService) {
+        this._route = _route;
+        this._router = _router;
+        this._httpService = _httpService;
     }
     SplashComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.id = { id: "" };
+        this.user = { username: "", location: "", funfact: "" };
+        this.username = { name: "" };
+        this.message = { success: "", name: "" };
+        this.messages = { messages: "" };
+        this._route.params.subscribe(function (params) {
+            _this.id = params.id;
+            //	console.log("05 params.id = ",params.id," params['id'] = ",params['id']);
+        });
+    };
+    SplashComponent.prototype.createUser = function () {
+        var _this = this;
+        var obs = this._httpService.createUser(this.user);
+        obs.subscribe(function (response) {
+            console.log("10 splash.c.ts createUser.  this.user = ", _this.user);
+            if (response['status'] == false) {
+                _this.messages = response['messages'];
+                console.log("12 splash.c.ts createUser.  status=false.  response.messages = ", response['messages']);
+            }
+            else {
+                if (response['status'] == true) {
+                    console.log("14 splash.c.ts createUser.  status=true.  response['user'] = ", response['user'], " response.message = ", response['message']);
+                    _this.message = response['message'];
+                    _this.storeSessionData(_this.user);
+                    _this.showHome();
+                }
+            }
+        });
+    };
+    SplashComponent.prototype.storeSessionData = function (user) {
+    };
+    SplashComponent.prototype.showHome = function () {
+        this._router.navigate(['/home']);
     };
     SplashComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -512,7 +557,9 @@ var SplashComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./splash.component.html */ "./src/app/splash/splash.component.html"),
             styles: [__webpack_require__(/*! ./splash.component.css */ "./src/app/splash/splash.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
+            _http_service__WEBPACK_IMPORTED_MODULE_2__["HttpService"]])
     ], SplashComponent);
     return SplashComponent;
 }());
@@ -582,7 +629,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/taylorbrudos/Desktop/Coding Dojo/MEAN/Angular/finalproject/public/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\AA_local_Code\z_git\chatterbox\chatterbox\public\src\main.ts */"./src/main.ts");
 
 
 /***/ })

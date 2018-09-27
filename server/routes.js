@@ -7,7 +7,9 @@ module.exports = function(app) {
     });
 
     app.post("/items", function(req,res) {
-        controller.createBox(req,res);
+		console.log("200 routes.js /items.  req.body = ",req.body);
+        controller.createUser(req,res);
+	//	controller.createBox(req,res);
     });
 
     app.get("/items/:id", function(req,res) {

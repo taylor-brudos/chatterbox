@@ -29,4 +29,9 @@ export class HttpService {
   deleteReviewToServer(id, sid) {
     return this._http.delete('/items/'+id+'/subitem/'+sid)
   }
+
+  createUser(user){
+	  console.log("100 service.ts createUser.  user = ",user)
+	  return this._http.post('/items', user);
+  }
 }
