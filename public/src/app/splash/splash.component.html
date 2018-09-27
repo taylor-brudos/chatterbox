@@ -1,26 +1,72 @@
 
 <div class="container">
-	<div class="row">
-		<div class="col">
+	<div class="row flex-row ">
+		<div class="col d-flex mx-auto display-1 justify-content-center ">
 			<h1 class="text-align: center">Chatter</h1>
 		</div>
 	</div>
-	 <div class="col m-3" >
-	<h4>Let's Get Chattering!</h4>
-	<div class="row m-3">
-		<div class="col-3">Your User Name:</div>
-		<div class="col">{{message["name"]}}</div>
+	<div class="row flex-row">
+		<div class="col d-flex mx-auto display-1 justify-content-center ">
+			<h3 class="display-5">Let's Get Chattering!</h3>
+		</div>
 	</div>
-	<div class="row m-3">
-		<div class="col-3">Location:</div>
-		<div class="col">{{session["location"]}}</div>
+	<div class="row">
+		<div class="col d-flex justify-content-center border rounded mx-auto main-border">
+			<form (submit)="createUser()">
+					
+					
+					<!-- <p> {{ messages | json }} </p>
+					<p> {{ user | json }} </p> -->
+
+					<!-- <div *ngIf="!username.valid && (username.dirty || username.touched)">
+						<span class="text-danger" *ngIf="username.errors.required">Username is required</span>
+					</div>
+
+					<span class="text-danger" *ngIf="messages.username">{{ messages.username }}</span>
+					<span class="text-success" *ngIf="message">{{ message }}</span> -->
+
+					<div class="form-group row">
+						<label class="col-6" path="name">Your username:</label>
+						<input type="text" name="user.username" [(ngModel)]="user.username" />
+						<!-- <input type="text" required name="user.username" #username="ngModel" [(ngModel)]="user.username" /> -->
+					</div>
+
+					<!-- <div *ngIf="!location.valid && (location.dirty || location.touched)">
+						<span class="text-danger" *ngIf="location.errors.required">Location is required</span>
+					</div>
+
+					<span class="text-danger" *ngIf="messages.location">{{ messages.location }}</span>
+					<span class="text-success" *ngIf="message">{{ message }}</span> -->
+			
+					<div class="form-group row">
+						<label class="col-6" path="name">Your location:</label>
+						<input type="text" name="user.location" [(ngModel)]="user.location"/>
+						<!-- <input type="text" required name="user.location" #location="ngModel" [(ngModel)]="user.location" /> -->
+					</div>
+
+					<!-- <div *ngIf="!funfact.valid && (funfact.dirty || funfact.touched)">
+						<span class="text-danger" *ngIf="funfact.errors.required">Fun fact is required</span>
+					</div>
+
+					<span class="text-danger" *ngIf="messages.funfact">{{ messages.funfact }}</span>
+					<span class="text-success" *ngIf="message">{{ message }}</span> -->
+			
+					<div class="form-group row">
+						<label class="col-6">Fun fact about you:</label>
+						<input type="text" name="user.funfact"[(ngModel)]="user.funfact"/>
+						<!-- <input type="text" required name="user.funfact" #funfact="ngModel" [(ngModel)]="user.funfact" /> -->
+					</div>
+					<div class="row">
+						<div class="col">
+							<input type="submit" class="btn btn-block btn-primary btn-lg m-x-2" value="Let's Go!"/>
+					<!-- <input [disabled]="!name.valid || !location.valid || !funfact.valid" class="btn btn-primary btn-sm" type="submit" value="Let's Go!"/> -->
+						</div>
+					</div>
+
+			</form>
+		</div>
 	</div>
-	<div class="row m-3">
-		<div class="col-3">Fun Fact:</div>
-		<div class="col">{{session["funfact"]}}</div>
-	</div>
-</div> 
-<button (click)="letsGo()" class="btn btn-primary btn-sm m-x-2">Let's Go!</button>
+</div>
 
 
 

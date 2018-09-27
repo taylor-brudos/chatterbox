@@ -1,4 +1,5 @@
 var mongoose = require("mongoose")
+var User = mongoose.model("User")
 var Box = mongoose.model("Box")
 var Message = mongoose.model("Message")
 
@@ -26,9 +27,9 @@ module.exports = {
     showBox: function(req,res) {
         Box.findOne({_id: req.params.id}, function(err, box) {
             if(err) {
-                res.json({ServerMessage: "Error", Error: err})
+                res.json({ServerMessage: "Error", Error: err, status: false})
             } else {
-                res.json({ServerMessage: "Success", Box: box})
+                res.json({ServerMessage: "Success", Box: box, status: true})
             }
         })
     },
@@ -69,6 +70,7 @@ module.exports = {
         })
     },
 
+	
     deleteMessage: function(req,res) {
         Message.remove({_id: req.params.sid}, function(err) {
             if(err) {
@@ -83,5 +85,18 @@ module.exports = {
                 })
             }
         })
-    }
+    },
+
+	createUser: function(req,res) {
+        User.create(req.body, function(err, user) {
+			console.log("300 controller.js createUser.  req.body = ",req.body);
+            if(err) {
+				console.log("310 controller.js createUser err.  err = ",err);
+                res.json({ServerMessage: "Error", Error: err, status: false})
+            } else {
+				console.log("320 controller.js createUser user.  user = ",user);
+                res.json({ServerMessage: "Success", User: user, status: true})
+            }
+        })
+    },
 }

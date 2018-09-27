@@ -1,0 +1,56 @@
+.chatHeader{
+	height: 200px;
+	width: 80%;
+	padding-left: 100px;
+}
+
+.chatBox{
+	/* height: 800px; */
+	width: 800px;
+	border: 2px solid black;
+	border-radius: 10px;
+
+}
+
+.boxHeading{
+	border: 1px solid black;
+	border-radius: 5px;
+}
+
+.chatWindow{
+	/* height: 600px; */
+	margin: 20px;
+	/* width: 600px; */
+	border: 2px solid black;
+	border-radius: 10px;
+
+}
+
+.messagesWindow{
+	height: 400px;
+	margin: 25px;
+	/* width: 600px; */
+	border: 2px solid black;
+	border-radius: 10px;
+
+}
+
+.messageField{
+	height: 100px;
+	margin: 25px;
+	/* width: 600px; */
+	border: 2px solid black;
+	border-radius: 10px;
+
+}
+
+.buttonBox{
+	/* width: 100px;
+	margin: 25px; */
+	padding: 25px;
+	/* width: 600px; */
+	border: 2px solid black;
+	border-radius: 10px;
+
+}
+

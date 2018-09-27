@@ -1,3 +1,70 @@
-<p>
-  chatterbox works!
-</p>
+
+	<!-- COMPONENT SHOW CAKE DETAILS - TWO FIELD DATA DISPLAY -->
+
+<div class="row">
+	<div class="col chatBox">	
+		<div class="row chatHeader">
+			<div class="col-12 m-3 ">
+				<div class="row m-3">
+					<h3 class="col-6 font-weight-bold">Chatterbox Topic:</h3>
+					<div class="col boxHeading"><strong>{{box["topic"]}}</strong></div>
+				</div>
+				<div class="row m-3">
+					<h3 class="col-6 font-weight-bold">Box ID#:</h3>
+					<div class="col boxHeading">{{box['_id']}}</div>
+				</div>
+				<div class="row m-3">
+					<h3 class="col-6 font-weight-bold">Description:</h3>
+					<div class="col boxHeading">{{box['desc']}}</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col chatWindow">
+				<div class="row">
+					<div class="col messagesWindow">
+						<table class="table table-striped">
+							<!-- <thead>
+								<th scope="col">Prod. Id</th>
+								<th scope="col">Name</th>
+								<th scope="col">Qty</th>
+								<th scope="col">Price</th>
+								<th scope="col">Actions</th>
+								
+							</thead> -->
+							<tbody>
+								<tr *ngFor="let message of messages">
+									<td class="mr-3">{{message["username"]}}</td>
+									<td class="mr-3">{{message["createdAt"]}}</td>
+								<!-- </tr>
+								<tr> -->
+									<td class="mr-3">{{message["content"]}}</td>
+								</tr>
+						</tbody>
+						</table>
+
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+
+						<form (submit)="sendMessage()">
+							<div class="row messageField p-4">
+								<div class="col-9">
+									<!-- <input class="form-control form-control-lg" type="text" placeholder=".form-control-lg"> -->
+									<textarea class="form-control" a></textarea>
+									<!-- <input type="text" form-control required minlength="2" name="message.content" #message="ngModel" [(ngModel)]="message.content" /> -->
+								</div>
+								<div class="col buttonbox px-5">
+									<input class="btn btn-primary btn-lg" type="submit" value="Send"/>
+									<!-- <input [disabled]="message.valid" class="btn btn-primary btn-sm" type="submit" value="Send"/> -->
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+</div>

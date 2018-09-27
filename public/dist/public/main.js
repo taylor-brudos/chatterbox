@@ -92,7 +92,9 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class=\"container\">\n\t<div class=\"row\">\n\t\t<div class=\"col\">\n\t\t\t<!-- <h1 class=\"text-align: center\">{{title}}</h1> -->\n\t\t</div>\n\t</div>\n\t<div class=\"row\">\n\t\t<div class=\"col\">\n\t\t\t<router-outlet></router-outlet>\n\t\t</div>\n\t</div>\n</div>\n\n\n\n\n\n\n\n"
+
+module.exports = "\r\n<div class=\"container\">\r\n\t<div class=\"row\">\r\n\t\t<div class=\"col\">\r\n\t\t\t<router-outlet></router-outlet>\r\n\t\t</div>\r\n\t</div>\r\n</div>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n"
+
 
 /***/ }),
 
@@ -215,7 +217,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".chatHeader{\r\n\theight: 200px;\r\n\twidth: 80%;\r\n\tpadding-left: 100px;\r\n}\r\n\r\n.chatBox{\r\n\t/* height: 800px; */\r\n\twidth: 800px;\r\n\tborder: 2px solid black;\r\n\tborder-radius: 10px;\r\n\r\n}\r\n\r\n.boxHeading{\r\n\tborder: 1px solid black;\r\n\tborder-radius: 5px;\r\n}\r\n\r\n.chatWindow{\r\n\t/* height: 600px; */\r\n\tmargin: 20px;\r\n\t/* width: 600px; */\r\n\tborder: 2px solid black;\r\n\tborder-radius: 10px;\r\n\r\n}\r\n\r\n.messagesWindow{\r\n\theight: 400px;\r\n\tmargin: 25px;\r\n\t/* width: 600px; */\r\n\tborder: 2px solid black;\r\n\tborder-radius: 10px;\r\n\r\n}\r\n\r\n.messageField{\r\n\theight: 100px;\r\n\tmargin: 25px;\r\n\t/* width: 600px; */\r\n\tborder: 2px solid black;\r\n\tborder-radius: 10px;\r\n\r\n}\r\n\r\n.buttonBox{\r\n\t/* width: 100px;\r\n\tmargin: 25px; */\r\n\tpadding: 25px;\r\n\t/* width: 600px; */\r\n\tborder: 2px solid black;\r\n\tborder-radius: 10px;\r\n\r\n}\r\n\r\n"
 
 /***/ }),
 
@@ -226,7 +228,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  chatterbox works!\n</p>\n"
+module.exports = "\r\n\t<!-- COMPONENT SHOW CAKE DETAILS - TWO FIELD DATA DISPLAY -->\r\n\r\n<div class=\"row\">\r\n\t<div class=\"col chatBox\">\t\r\n\t\t<div class=\"row chatHeader\">\r\n\t\t\t<div class=\"col-12 m-3 \">\r\n\t\t\t\t<div class=\"row m-3\">\r\n\t\t\t\t\t<h3 class=\"col-6 font-weight-bold\">Chatterbox Topic:</h3>\r\n\t\t\t\t\t<div class=\"col boxHeading\"><strong>{{box[\"topic\"]}}</strong></div>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"row m-3\">\r\n\t\t\t\t\t<h3 class=\"col-6 font-weight-bold\">Box ID#:</h3>\r\n\t\t\t\t\t<div class=\"col boxHeading\">{{box['_id']}}</div>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"row m-3\">\r\n\t\t\t\t\t<h3 class=\"col-6 font-weight-bold\">Description:</h3>\r\n\t\t\t\t\t<div class=\"col boxHeading\">{{box['desc']}}</div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t\t<div class=\"row\">\r\n\t\t\t<div class=\"col chatWindow\">\r\n\t\t\t\t<div class=\"row\">\r\n\t\t\t\t\t<div class=\"col messagesWindow\">\r\n\t\t\t\t\t\t<table class=\"table table-striped\">\r\n\t\t\t\t\t\t\t<!-- <thead>\r\n\t\t\t\t\t\t\t\t<th scope=\"col\">Prod. Id</th>\r\n\t\t\t\t\t\t\t\t<th scope=\"col\">Name</th>\r\n\t\t\t\t\t\t\t\t<th scope=\"col\">Qty</th>\r\n\t\t\t\t\t\t\t\t<th scope=\"col\">Price</th>\r\n\t\t\t\t\t\t\t\t<th scope=\"col\">Actions</th>\r\n\t\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t</thead> -->\r\n\t\t\t\t\t\t\t<tbody>\r\n\t\t\t\t\t\t\t\t<tr *ngFor=\"let message of messages\">\r\n\t\t\t\t\t\t\t\t\t<td class=\"mr-3\">{{message[\"username\"]}}</td>\r\n\t\t\t\t\t\t\t\t\t<td class=\"mr-3\">{{message[\"createdAt\"]}}</td>\r\n\t\t\t\t\t\t\t\t<!-- </tr>\r\n\t\t\t\t\t\t\t\t<tr> -->\r\n\t\t\t\t\t\t\t\t\t<td class=\"mr-3\">{{message[\"content\"]}}</td>\r\n\t\t\t\t\t\t\t\t</tr>\r\n\t\t\t\t\t\t</tbody>\r\n\t\t\t\t\t\t</table>\r\n\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"row\">\r\n\t\t\t\t\t<div class=\"col\">\r\n\r\n\t\t\t\t\t\t<form (submit)=\"sendMessage()\">\r\n\t\t\t\t\t\t\t<div class=\"row messageField p-4\">\r\n\t\t\t\t\t\t\t\t<div class=\"col-9\">\r\n\t\t\t\t\t\t\t\t\t<!-- <input class=\"form-control form-control-lg\" type=\"text\" placeholder=\".form-control-lg\"> -->\r\n\t\t\t\t\t\t\t\t\t<textarea class=\"form-control\" a></textarea>\r\n\t\t\t\t\t\t\t\t\t<!-- <input type=\"text\" form-control required minlength=\"2\" name=\"message.content\" #message=\"ngModel\" [(ngModel)]=\"message.content\" /> -->\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t<div class=\"col buttonbox px-5\">\r\n\t\t\t\t\t\t\t\t\t<input class=\"btn btn-primary btn-lg\" type=\"submit\" value=\"Send\"/>\r\n\t\t\t\t\t\t\t\t\t<!-- <input [disabled]=\"message.valid\" class=\"btn btn-primary btn-sm\" type=\"submit\" value=\"Send\"/> -->\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</form>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t\t\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -241,6 +243,8 @@ module.exports = "<p>\n  chatterbox works!\n</p>\n"
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChatterboxComponent", function() { return ChatterboxComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../http.service */ "./src/app/http.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -251,10 +255,46 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
 var ChatterboxComponent = /** @class */ (function () {
-    function ChatterboxComponent() {
+    function ChatterboxComponent(_route, _router, _httpService) {
+        this._route = _route;
+        this._router = _router;
+        this._httpService = _httpService;
     }
     ChatterboxComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.id = { id: "" };
+        this.box = { topic: "", desc: "", welcome: "" };
+        this.username = { username: "" };
+        this.message = { username: "", content: "" };
+        this.messages = { messages: "" };
+        this._route.params.subscribe(function (params) {
+            _this.id = params.id;
+            console.log("05 chbox.c.ts onInit params.id = ", params.id);
+        });
+        this.getBox(this.id);
+    };
+    ChatterboxComponent.prototype.getBox = function (id) {
+        var _this = this;
+        var obs = this._httpService.getOneFromServer(id);
+        obs.subscribe(function (response) {
+            console.log("30 chbox.c.ts getBox response.  response = ", response);
+            if (response['status'] == false) {
+                _this.messages = response['messages'];
+                console.log("32 chbox.c.ts getBox.  status=false.  response.ServerMessage = ", response['ServerMessage']);
+            }
+            else {
+                if (response['status'] == true) {
+                    console.log("34 chbox.c.ts getBox.  status=true.  response['Box'] = ", response['Box'], " response.ServerMessage = ", response['ServerMessage']);
+                    _this.box = response['Box'];
+                    _this.message = response['ServerMessage'];
+                    _this.messages = response['Box']['messages'];
+                    console.log("36 chbox.c.ts getBox.  status=true.  response['Box']['messages'] = ", response['Box']['messages']);
+                }
+            }
+        });
     };
     ChatterboxComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -262,7 +302,9 @@ var ChatterboxComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./chatterbox.component.html */ "./src/app/chatterbox/chatterbox.component.html"),
             styles: [__webpack_require__(/*! ./chatterbox.component.css */ "./src/app/chatterbox/chatterbox.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
+            _http_service__WEBPACK_IMPORTED_MODULE_2__["HttpService"]])
     ], ChatterboxComponent);
     return ChatterboxComponent;
 }());
@@ -289,7 +331,9 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+
 module.exports = "<div>\n  <h1>Chatterbox</h1>\n  <h4>Create a chatterbox!</h4>\n  <div>\n    <ul>\n      <li *ngFor=\"let i of errors\">{{i}}</li>\n    </ul>\n  </div>\n  <form (submit)=\"createBox()\">\n    <table>\n      <tr>\n        <td>Topic:</td>\n        <td><input \n          type=\"text\"\n          name=\"topic\"\n          required\n          minlength=\"3\"\n          [(ngModel)]=\"newBox.topic\"\n          #topic=\"ngModel\"/>\n        </td>\n        <td *ngIf=\"topic.errors\">\n          <p *ngIf=\"topic.errors['required']\">required</p>\n          <p *ngIf=\"topic.errors['minlength']\"> {{topic.errors['minlength']['actualLength']}}/{{topic.errors['minlength']['requiredLength']}} required characters.</p>\n        </td>\n      </tr>\n      <tr>\n        <td>Description:</td>\n        <td><input\n          type=\"text\"\n          name=\"desc\"\n          required\n          minlength=\"5\"\n          [(ngModel)]=\"newBox.desc\"\n          #desc=\"ngModel\"/>\n        </td>\n        <td *ngIf=\"desc.errors\">\n          <p *ngIf=\"desc.errors['required']\">required</p>\n          <p *ngIf=\"desc.errors['minlength']\"> {{desc.errors['minlength']['actualLength']}}/{{desc.errors['minlength']['requiredLength']}} required characters. </p>\n        </td>\n      </tr>\n      <tr>\n        <td>Welcome Message:</td>\n        <td><input\n          type=\"text\"\n          name=\"welcome\"\n          required\n          minlength=\"5\"\n          [(ngModel)]=\"newBox.welcome\"\n          #welcome=\"ngModel\"/>\n        </td>\n        <td *ngIf=\"welcome.errors\">\n          <p *ngIf=\"welcome.errors['required']\">required</p>\n          <p *ngIf=\"welcome.errors['minlength']\"> {{welcome.errors['minlength']['actualLength']}}/{{welcome.errors['minlength']['requiredLength']}} required characters. </p>\n        </td>\n      </tr>\n      <tr>\n        <td (click)=\"goHome()\"><button>Cancel</button></td>\n        <td>\n          <button>Submit</button>\n        </td>\n      </tr>\n    </table>\n  </form>\n</div>"
+
 
 /***/ }),
 
@@ -400,7 +444,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  home works!\n</p>\n"
+module.exports = "<p>\r\n  home works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -476,13 +520,14 @@ var HttpService = /** @class */ (function () {
         return this._http.get('/items');
     };
     HttpService.prototype.getOneFromServer = function (id) {
-        return this._http.get('/items' + id);
+        console.log("130 service.ts getOneFromServer id = ", id);
+        return this._http.get('/items/' + id);
     };
     HttpService.prototype.updateToServer = function (id, box) {
-        return this._http.put('/items' + id, box);
+        return this._http.put('/items/' + id, box);
     };
     HttpService.prototype.deleteToServer = function (id) {
-        return this._http.delete('/items' + id);
+        return this._http.delete('/items/' + id);
     };
     HttpService.prototype.createNewToServer = function (box) {
         return this._http.post('/items', box);
@@ -490,8 +535,15 @@ var HttpService = /** @class */ (function () {
     HttpService.prototype.createMessageToServer = function (id, message) {
         return this._http.post('/items/' + id + '/subitem', message);
     };
-    HttpService.prototype.deleteReviewToServer = function (id, sid) {
+    HttpService.prototype.getMessagesFromServer = function (id) {
+        return this._http.get('/items/' + id + '/subitem');
+    };
+    HttpService.prototype.deleteMessageToServer = function (id, sid) {
         return this._http.delete('/items/' + id + '/subitem/' + sid);
+    };
+    HttpService.prototype.createUser = function (user) {
+        console.log("100 service.ts createUser.  user = ", user);
+        return this._http.post('/items', user);
     };
     HttpService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
@@ -524,8 +576,8 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class=\"container\">\n\t<div class=\"row\">\n\t\t<div class=\"col\">\n\t\t\t<h1 class=\"text-align: center\">Chatter</h1>\n\t\t</div>\n\t</div>\n\t <div class=\"col m-3\" >\n\t<h4>Let's Get Chattering!</h4>\n\t<div class=\"row m-3\">\n\t\t<div class=\"col-3\">Your User Name:</div>\n\t\t<div class=\"col\">{{message[\"name\"]}}</div>\n\t</div>\n\t<div class=\"row m-3\">\n\t\t<div class=\"col-3\">Location:</div>\n\t\t<div class=\"col\">{{session[\"location\"]}}</div>\n\t</div>\n\t<div class=\"row m-3\">\n\t\t<div class=\"col-3\">Fun Fact:</div>\n\t\t<div class=\"col\">{{session[\"funfact\"]}}</div>\n\t</div>\n</div> \n<button (click)=\"letsGo()\" class=\"btn btn-primary btn-sm m-x-2\">Let's Go!</button>\n\n\n\n\n\n\n\n\n"
 
+module.exports = "\r\n<div class=\"container\">\r\n\t<div class=\"row flex-row \">\r\n\t\t<div class=\"col d-flex mx-auto display-1 justify-content-center \">\r\n\t\t\t<h1 class=\"text-align: center\">Chatter</h1>\r\n\t\t</div>\r\n\t</div>\r\n\t<div class=\"row flex-row\">\r\n\t\t<div class=\"col d-flex mx-auto display-1 justify-content-center \">\r\n\t\t\t<h3 class=\"display-5\">Let's Get Chattering!</h3>\r\n\t\t</div>\r\n\t</div>\r\n\t<div class=\"row\">\r\n\t\t<div class=\"col d-flex justify-content-center border rounded mx-auto main-border\">\r\n\t\t\t<form (submit)=\"createUser()\">\r\n\t\t\t\t\t\r\n\t\t\t\t\t\r\n\t\t\t\t\t<!-- <p> {{ messages | json }} </p>\r\n\t\t\t\t\t<p> {{ user | json }} </p> -->\r\n\r\n\t\t\t\t\t<!-- <div *ngIf=\"!username.valid && (username.dirty || username.touched)\">\r\n\t\t\t\t\t\t<span class=\"text-danger\" *ngIf=\"username.errors.required\">Username is required</span>\r\n\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t<span class=\"text-danger\" *ngIf=\"messages.username\">{{ messages.username }}</span>\r\n\t\t\t\t\t<span class=\"text-success\" *ngIf=\"message\">{{ message }}</span> -->\r\n\r\n\t\t\t\t\t<div class=\"form-group row\">\r\n\t\t\t\t\t\t<label class=\"col-6\" path=\"name\">Your username:</label>\r\n\t\t\t\t\t\t<input type=\"text\" name=\"user.username\" [(ngModel)]=\"user.username\" />\r\n\t\t\t\t\t\t<!-- <input type=\"text\" required name=\"user.username\" #username=\"ngModel\" [(ngModel)]=\"user.username\" /> -->\r\n\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t<!-- <div *ngIf=\"!location.valid && (location.dirty || location.touched)\">\r\n\t\t\t\t\t\t<span class=\"text-danger\" *ngIf=\"location.errors.required\">Location is required</span>\r\n\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t<span class=\"text-danger\" *ngIf=\"messages.location\">{{ messages.location }}</span>\r\n\t\t\t\t\t<span class=\"text-success\" *ngIf=\"message\">{{ message }}</span> -->\r\n\t\t\t\r\n\t\t\t\t\t<div class=\"form-group row\">\r\n\t\t\t\t\t\t<label class=\"col-6\" path=\"name\">Your location:</label>\r\n\t\t\t\t\t\t<input type=\"text\" name=\"user.location\" [(ngModel)]=\"user.location\"/>\r\n\t\t\t\t\t\t<!-- <input type=\"text\" required name=\"user.location\" #location=\"ngModel\" [(ngModel)]=\"user.location\" /> -->\r\n\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t<!-- <div *ngIf=\"!funfact.valid && (funfact.dirty || funfact.touched)\">\r\n\t\t\t\t\t\t<span class=\"text-danger\" *ngIf=\"funfact.errors.required\">Fun fact is required</span>\r\n\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t<span class=\"text-danger\" *ngIf=\"messages.funfact\">{{ messages.funfact }}</span>\r\n\t\t\t\t\t<span class=\"text-success\" *ngIf=\"message\">{{ message }}</span> -->\r\n\t\t\t\r\n\t\t\t\t\t<div class=\"form-group row\">\r\n\t\t\t\t\t\t<label class=\"col-6\">Fun fact about you:</label>\r\n\t\t\t\t\t\t<input type=\"text\" name=\"user.funfact\"[(ngModel)]=\"user.funfact\"/>\r\n\t\t\t\t\t\t<!-- <input type=\"text\" required name=\"user.funfact\" #funfact=\"ngModel\" [(ngModel)]=\"user.funfact\" /> -->\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"row\">\r\n\t\t\t\t\t\t<div class=\"col\">\r\n\t\t\t\t\t\t\t<input type=\"submit\" class=\"btn btn-block btn-primary btn-lg m-x-2\" value=\"Let's Go!\"/>\r\n\t\t\t\t\t<!-- <input [disabled]=\"!name.valid || !location.valid || !funfact.valid\" class=\"btn btn-primary btn-sm\" type=\"submit\" value=\"Let's Go!\"/> -->\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\r\n\t\t\t</form>\r\n\t\t</div>\r\n\t</div>\r\n</div>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n"
 /***/ }),
 
 /***/ "./src/app/splash/splash.component.ts":
@@ -539,6 +591,8 @@ module.exports = "\n<div class=\"container\">\n\t<div class=\"row\">\n\t\t<div c
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SplashComponent", function() { return SplashComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../http.service */ "./src/app/http.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -549,10 +603,57 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
 var SplashComponent = /** @class */ (function () {
-    function SplashComponent() {
+    function SplashComponent(_route, _router, _httpService) {
+        this._route = _route;
+        this._router = _router;
+        this._httpService = _httpService;
     }
     SplashComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.id = { id: "" };
+        this.user = { username: "", location: "", funfact: "" };
+        this.username = { name: "" };
+        this.message = { success: "", name: "" };
+        this.messages = { messages: "" };
+        this._route.params.subscribe(function (params) {
+            _this.id = params.id;
+            //	console.log("05 params.id = ",params.id," params['id'] = ",params['id']);
+        });
+    };
+    SplashComponent.prototype.createUser = function () {
+        var _this = this;
+        var obs = this._httpService.createUser(this.user);
+        obs.subscribe(function (response) {
+            console.log("10 splash.c.ts createUser.  this.user = ", _this.user);
+            if (response['status'] == false) {
+                _this.messages = response['messages'];
+                console.log("12 splash.c.ts createUser.  status=false.  response.messages = ", response['messages']);
+            }
+            else {
+                if (response['status'] == true) {
+                    console.log("14 splash.c.ts createUser.  status=true.  response['user'] = ", response['user'], " response.message = ", response['message']);
+                    _this.message = response['message'];
+                    _this.storeSessionData(_this.user);
+                    //	this.showHome()
+                }
+            }
+        });
+    };
+    SplashComponent.prototype.storeSessionData = function (user) {
+        sessionStorage.username = user.username;
+        sessionStorage.location = user.location;
+        sessionStorage.funfact = user.funfact;
+        console.log("sessionStorage:");
+        console.log("username = ", sessionStorage.username);
+        console.log("location = ", sessionStorage.location);
+        console.log("funfact = ", sessionStorage.funfact);
+        this.ngOnInit();
+    };
+    SplashComponent.prototype.showHome = function () {
+        this._router.navigate(['/home']);
     };
     SplashComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -560,7 +661,9 @@ var SplashComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./splash.component.html */ "./src/app/splash/splash.component.html"),
             styles: [__webpack_require__(/*! ./splash.component.css */ "./src/app/splash/splash.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
+            _http_service__WEBPACK_IMPORTED_MODULE_2__["HttpService"]])
     ], SplashComponent);
     return SplashComponent;
 }());
@@ -630,7 +733,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/taylorbrudos/Desktop/Coding Dojo/MEAN/Angular/finalproject/public/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\AA_local_Code\z_git\chatterbox\chatterbox\public\src\main.ts */"./src/main.ts");
 
 
 /***/ })
