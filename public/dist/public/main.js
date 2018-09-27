@@ -541,12 +541,20 @@ var SplashComponent = /** @class */ (function () {
                     console.log("14 splash.c.ts createUser.  status=true.  response['user'] = ", response['user'], " response.message = ", response['message']);
                     _this.message = response['message'];
                     _this.storeSessionData(_this.user);
-                    _this.showHome();
+                    //	this.showHome()
                 }
             }
         });
     };
     SplashComponent.prototype.storeSessionData = function (user) {
+        sessionStorage.username = user.username;
+        sessionStorage.location = user.location;
+        sessionStorage.funfact = user.funfact;
+        console.log("sessionStorage:");
+        console.log("username = ", sessionStorage.username);
+        console.log("location = ", sessionStorage.location);
+        console.log("funfact = ", sessionStorage.funfact);
+        this.ngOnInit();
     };
     SplashComponent.prototype.showHome = function () {
         this._router.navigate(['/home']);

@@ -48,8 +48,9 @@ export class SplashComponent implements OnInit {
 				if (response['status']==true) {
 				console.log("14 splash.c.ts createUser.  status=true.  response['user'] = ",response['user']," response.message = ",response['message'] )
 					this.message = response['message'];
-					this.storeSessionData(this.user)
-					this.showHome()
+					this.storeSessionData(this.user);
+					
+				//	this.showHome()
 					
 				}
 			}
@@ -57,6 +58,17 @@ export class SplashComponent implements OnInit {
 	}
 
 	storeSessionData(user){
+
+		sessionStorage.username = user.username;
+		sessionStorage.location = user.location;
+		sessionStorage.funfact = user.funfact;
+
+		console.log("sessionStorage:");
+		console.log("username = ",sessionStorage.username);
+		console.log("location = ",sessionStorage.location);
+		console.log("funfact = ",sessionStorage.funfact);
+		
+		this.ngOnInit();
 
 	}
 
